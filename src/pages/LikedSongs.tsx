@@ -85,7 +85,7 @@ export const LikedSongs: React.FC = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
-                key={song.id}
+                key={`${song.id}-${index}`}
                 className="grid grid-cols-[auto_1fr_auto_auto] gap-4 p-4 items-center hover:bg-white/5 transition-colors group cursor-pointer"
                 onClick={() => handlePlaySong(index)}
               >

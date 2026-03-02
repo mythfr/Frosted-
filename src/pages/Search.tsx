@@ -55,9 +55,9 @@ export const Search: React.FC = () => {
         </div>
       ) : results.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {results.map((song) => (
+          {results.map((song, index) => (
             <motion.div
-              key={song.id}
+              key={`${song.id}-${index}`}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               className={`group p-4 rounded-2xl transition-all relative ${
@@ -93,9 +93,9 @@ export const Search: React.FC = () => {
               </div>
 
               <div className="absolute top-6 right-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                {playlists.slice(0, 1).map(p => (
+                {playlists.slice(0, 1).map((p, index) => (
                   <button 
-                    key={p.id}
+                    key={`${p.id}-${index}`}
                     onClick={() => addSongToPlaylist(p.id, song)}
                     className="p-2 bg-white/10 backdrop-blur-md text-white rounded-full hover:bg-blue-500 transition-colors"
                     title={`Add to ${p.name}`}

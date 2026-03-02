@@ -36,9 +36,9 @@ export const Artists: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-        {artists.map((artist) => (
+        {artists.map((artist, index) => (
           <motion.div
-            key={artist.id}
+            key={`${artist.id}-${index}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >

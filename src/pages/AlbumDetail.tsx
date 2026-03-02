@@ -144,7 +144,7 @@ export const AlbumDetail: React.FC = () => {
         <div className="flex flex-col">
           {sortedSongs.map((song, index) => (
             <div 
-              key={song.id}
+              key={`${song.id}-${index}`}
               className={`grid grid-cols-[16px_1fr_48px] sm:grid-cols-[16px_1fr_1fr_48px] lg:grid-cols-[16px_1fr_1fr_120px_48px] gap-4 px-4 py-3 rounded-lg group cursor-pointer transition-colors ${
                 isDarkMode ? 'hover:bg-white/5' : 'hover:bg-black/5'
               }`}
@@ -156,9 +156,9 @@ export const AlbumDetail: React.FC = () => {
               </div>
               <span className="hidden sm:flex items-center text-xs lg:text-sm text-slate-400 truncate" onClick={() => playSong(song, index)}>{song.artist}</span>
               <div className="hidden lg:flex items-center gap-1 overflow-hidden">
-                {playlists.slice(0, 2).map(p => (
+                {playlists.slice(0, 2).map((p, index) => (
                   <button 
-                    key={p.id}
+                    key={`${p.id}-${index}`}
                     onClick={(e) => {
                       e.stopPropagation();
                       addSongToPlaylist(p.id, song);

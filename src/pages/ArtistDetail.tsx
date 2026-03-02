@@ -93,7 +93,7 @@ export const ArtistDetail: React.FC = () => {
           <div className="flex flex-col">
             {topSongs.map((song: any, index: number) => (
               <div 
-                key={song.id}
+                key={`${song.id}-${index}`}
                 onClick={() => playSong(song, index)}
                 className={`flex items-center gap-4 px-4 py-2 rounded-lg group cursor-pointer transition-colors ${
                   isDarkMode ? 'hover:bg-white/5' : 'hover:bg-black/5'
@@ -134,9 +134,9 @@ export const ArtistDetail: React.FC = () => {
       <div className="px-8 pb-12">
         <h2 className="text-2xl font-bold mb-6 dark:text-white">Discography</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {artistAlbums.map((album) => (
+          {artistAlbums.map((album, index) => (
             <Link 
-              key={album.id} 
+              key={`${album.id}-${index}`} 
               to={`/album/${album.id}`}
               className={`p-4 rounded-xl transition-all group ${
                 isDarkMode ? 'bg-white/5 hover:bg-white/10' : 'bg-black/5 hover:bg-black/10'

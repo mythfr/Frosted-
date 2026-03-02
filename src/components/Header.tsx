@@ -144,9 +144,9 @@ export const Header: React.FC = () => {
                     <div className="px-4 py-1 text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-2">
                       <Music size={12} /> Songs
                     </div>
-                    {suggestions.songs.map(song => (
+                    {suggestions.songs.map((song, index) => (
                       <div 
-                        key={song.id}
+                        key={`${song.id}-${index}`}
                         onClick={() => playSong(song)}
                         className={clsx(
                           "flex items-center gap-3 px-4 py-2 cursor-pointer transition-colors",
@@ -168,9 +168,9 @@ export const Header: React.FC = () => {
                     <div className="px-4 py-1 text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-2">
                       <Mic2 size={12} /> Artists
                     </div>
-                    {suggestions.artists.map(artist => (
+                    {suggestions.artists.map((artist, index) => (
                       <div 
-                        key={artist.id}
+                        key={`${artist.id}-${index}`}
                         onClick={() => {
                           setShowSuggestions(false);
                           navigate(`/artist/${artist.id}`);
@@ -194,9 +194,9 @@ export const Header: React.FC = () => {
                     <div className="px-4 py-1 text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-2">
                       <Disc size={12} /> Albums
                     </div>
-                    {suggestions.albums.map(album => (
+                    {suggestions.albums.map((album, index) => (
                       <div 
-                        key={album.id}
+                        key={`${album.id}-${index}`}
                         onClick={() => {
                           setShowSuggestions(false);
                           navigate(`/album/${album.id}`);

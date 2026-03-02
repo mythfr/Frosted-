@@ -107,9 +107,9 @@ export const Home: React.FC = () => {
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
-          {trendingSongs.map((song) => (
+          {trendingSongs.map((song, index) => (
             <motion.div
-              key={song.id}
+              key={`${song.id}-${index}`}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className={clsx(
@@ -136,9 +136,9 @@ export const Home: React.FC = () => {
           <h2 className="text-xl md:text-2xl font-bold dark:text-white tracking-tight">Featured Albums</h2>
         </div>
         <div className="flex overflow-x-auto hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0 gap-4 md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-6">
-          {featuredAlbums.map((album) => (
+          {featuredAlbums.map((album, index) => (
             <Link 
-              key={album.id} 
+              key={`${album.id}-${index}`} 
               to={`/album/${album.id}`}
               className={clsx(
                 "w-36 md:w-auto shrink-0 p-3 md:p-4 rounded-xl transition-all group",
@@ -164,9 +164,9 @@ export const Home: React.FC = () => {
           <h2 className="text-xl md:text-2xl font-bold dark:text-white tracking-tight">Popular Artists</h2>
         </div>
         <div className="flex overflow-x-auto hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0 gap-4 md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-6">
-          {popularArtists.map((artist) => (
+          {popularArtists.map((artist, index) => (
             <Link 
-              key={artist.id} 
+              key={`${artist.id}-${index}`} 
               to={`/artist/${artist.id}`}
               className={clsx(
                 "w-36 md:w-auto shrink-0 p-3 md:p-4 rounded-xl transition-all group text-center",
